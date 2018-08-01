@@ -13,7 +13,7 @@
   <select id="findUsersByName" parameterType="java.lang.String" resultMap="userList">
     select * from user where 1=1
     <if test="name != null">
-         and user_name = #{name}
+         and (username = #{name} or loginid =#{name})
      </if>
   </select>
   
