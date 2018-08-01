@@ -12,4 +12,6 @@ import ren.xiangmu.creatorapi.models.User;
 @Repository
 public interface UserMapper {
 	List<User> findUsersByName(@Param(value="name") String name);
+	
+	List<User> findUsersByLoginIdAndPw(@Param(value="loginId") String loginId, @Param(value="password") String password);
 }

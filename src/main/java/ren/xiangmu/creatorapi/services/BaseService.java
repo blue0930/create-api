@@ -5,7 +5,11 @@ import java.util.Map;
 
 import com.thoughtworks.xstream.XStream;
 
-public class BaseService {
+import ren.xiangmu.creatorapi.beans.ResponseMessage;
+import ren.xiangmu.creatorapi.enums.ResultEnum;
+import ren.xiangmu.creatorapi.utils.BasicUtils;
+
+public class BaseService<T> {
 	
 	public String bean2Xml(Object o) {
 		XStream xstream = new XStream();
@@ -32,5 +36,28 @@ public class BaseService {
 		String head = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 		xmlStr = head + xmlStr;
 		return xmlStr;
+	}
+	
+	public ResponseMessage success(T value) {
+		return BasicUtils.success(value);
+	}
+	
+	/**
+	 * 操作失败返回的消息
+	 * @param code
+	 * @param msg
+	 * @return
+	 */
+	public ResponseMessage error(int code,String msg) {
+	    return BasicUtils.error(code, msg);
+	}
+
+	/**
+	 * 操作失败返回消息，对error的重载
+	 * @param resultEnum
+	 * @return
+	 */
+	public ResponseMessage error(ResultEnum resultEnum){
+	    return BasicUtils.error(resultEnum);
 	}
 }

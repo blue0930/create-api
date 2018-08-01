@@ -16,5 +16,13 @@
          and user_name = #{name}
      </if>
   </select>
+  
+  <select id="findUsersByLoginIdAndPw" parameterType="java.lang.String" resultMap="userList">
+    select * from user where 1=1
+    <if test="name != null">
+         and user_name = #{name}
+     </if>
+  </select>
+  
  
 </mapper>

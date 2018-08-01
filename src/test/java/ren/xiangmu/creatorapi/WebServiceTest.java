@@ -13,8 +13,9 @@ public class WebServiceTest {
 //		System.out.println(objects[0].toString());
 		
 		JaxWsDynamicClientFactory clientFactory = JaxWsDynamicClientFactory.newInstance();
-		Client client = clientFactory.createClient("http://localhost:8080/service/test?wsdl");
-		Object[] objects = client.invoke("testUser", "wang");
+		Client client = clientFactory.createClient("http://localhost:8080/services/InfoService?wsdl");
+//		Object[] objects = client.invoke("testUser", "wang");
+		Object[] objects = client.invoke("sayHowAreYou", "wang");
 		System.out.println(objects[0].toString());
 	}
 
